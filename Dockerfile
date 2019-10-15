@@ -3,7 +3,7 @@
 
 FROM ubuntu
 
-MAINTAINER tracer0tong <yuriy.leonychev@gmail.com>
+MAINTAINER behring <behring.zhao@gmail.com>
 
 # Specially for SSH access and port redirection
 ENV ROOTPASSWORD android

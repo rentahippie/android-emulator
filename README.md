@@ -26,13 +26,13 @@ Docker image avalaible from [Docker registry].
 Use Docker registry with *latest* tag:
 
 ```sh
-$ docker pull tracer0tong/android-emulator:latest
-$ docker run -d -P --name android tracer0tong/android-emulator 
+$ docker pull behring/android-emulator:latest
+$ docker run -d -P --name android behring/android-emulator 
 ```
 Or use Makefile from repository:
 
 ```sh
-$ git clone https://github.com/tracer0tong/android-emulator.git android-emulator
+$ git clone https://github.com/behring/android-emulator.git android-emulator
 $ cd android-emulator
 $ make run
 $ make ports
@@ -60,7 +60,7 @@ $ make EMULATOR="android-22" ARCH="x86" run
 ```
 or
 ```sh
-$ docker run -e "EMULATOR=android-22" -e "ARCH=x86" -d -P --name android tracer0tong/android-emulator
+$ docker run -e "EMULATOR=android-22" -e "ARCH=x86" -d -P --name android behring/android-emulator
 ```
 
 ### How to connect to emulator
@@ -80,7 +80,7 @@ A: Depend on Docker toolset: for GUI tools as Kitematic just check port forwardi
 ```sh
 $ sudo docker ps
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                                                                                                                       NAMES
-0dd15cd1bd43        tracer0tong/android-emulator   "/entrypoint.sh -e an"   6 days ago          Up 6 days           0.0.0.0:32812->22/tcp, 0.0.0.0:32811->5037/tcp, 0.0.0.0:32810->5554/tcp, 0.0.0.0:32809->5555/tcp, 0.0.0.0:32808->5900/tcp   android
+0dd15cd1bd43        behring/android-emulator   "/entrypoint.sh -e an"   6 days ago          Up 6 days           0.0.0.0:32812->22/tcp, 0.0.0.0:32811->5037/tcp, 0.0.0.0:32810->5554/tcp, 0.0.0.0:32809->5555/tcp, 0.0.0.0:32808->5900/tcp   android
 $ ssh root@0.0.0.0 -p 32812
 root@0.0.0.0's password:
 Welcome to Ubuntu 12.04.5 LTS (GNU/Linux 3.19.0-28-generic x86_64)
@@ -120,7 +120,7 @@ License
 
 Apache
 
-[Docker registry]:https://registry.hub.docker.com/u/tracer0tong/android-emulator/
+[Docker registry]:https://registry.hub.docker.com/u/behring/android-emulator/
 [Docker]:https://www.docker.com
 [Android SDK]:https://developer.android.com/sdk/index.html
 [Apache Ant]:http://ant.apache.org

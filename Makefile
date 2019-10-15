@@ -14,11 +14,11 @@ COLON := :
 .PHONY = run ports kill ps
 
 all:
-	@docker build -q -t tracer0tong/android-emulator\:latest .
+	@docker build -q -t behring/android-emulator\:latest .
 	@docker images
 
 run: clean
-	@docker run -e "EMULATOR=$(EMULATOR)" -e "ARCH=$(ARCH)" -d -P --name android --log-driver=json-file tracer0tong/android-emulator
+	@docker run -e "EMULATOR=$(EMULATOR)" -e "ARCH=$(ARCH)" -d -P --name android --log-driver=json-file behring/android-emulator
 
 ports:
 ifneq "$(RUNNED)" ""
