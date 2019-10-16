@@ -1,14 +1,10 @@
 #!/bin/bash
 
 if [[ $EMULATOR == "" ]]; then
-    EMULATOR="android-27"
+    EMULATOR="android-24"
     echo "Using default emulator $EMULATOR"
 fi
 
-if [[ $ARCH == "" ]]; then
-    ARCH="x86"
-    echo "Using default arch $ARCH"
-fi
 echo EMULATOR  = "Requested API: ${EMULATOR} (${ARCH}) emulator."
 if [[ -n $1 ]]; then
     echo "Last line of file specified as non-opt/last argument:"
@@ -26,13 +22,7 @@ socat tcp-listen:5555,bind=$ip,fork tcp:127.0.0.1:5555 &
 socat tcp-listen:80,bind=$ip,fork tcp:127.0.0.1:80 &
 socat tcp-listen:443,bind=$ip,fork tcp:127.0.0.1:443 &
 
-# Set up and run emulator
-if [[ $ARCH == *"x86"* ]]
-then 
-    EMU="x86"
-else
-    EMU="arm"
-fi
+echo no | /usr/local/android-sdk/tools/bin/avdmanager create avd -n test -k "system-images;${EMULATOR};default;armeabi-v7a"
+/usr/local/android-sdk/tools/emulator -avd test -noaudio -no-window -gpu off
+/bin/bash
 
-echo "no" | /usr/local/android-sdk/tools/android create avd -f -n test -t ${EMULATOR} --abi default/${ARCH}
-echo "no" | /usr/local/android-sdk/tools/emulator64-${EMU} -avd test -noaudio -no-window -gpu off -verbose -qemu -usbdevice tablet -vnc :0
