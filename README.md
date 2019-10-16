@@ -53,14 +53,14 @@ List of devices attached
 $ adb shell
 root@generic_x86:/ #
 ```
-By default it will create and run API 19 (arm) for you, but some other versions also supported. You can run emulator for API versions: 19, 21, 22 x86/armeabi-v7a (as -a option). This is the [most popular] API versions among usable devices.
+By default it will create and run API 19 (arm) for you, but some other versions also supported. You can run emulator for API versions: 23, 24 armeabi-v7a (beacause emulator with x86 and armeabi-v7a on version 22 cannot run on the docker machine). This is the [most popular] API versions among usable devices.
 
 ```sh
-$ make EMULATOR="android-22" ARCH="x86" run
+$ make EMULATOR="android-24" run
 ```
 or
 ```sh
-$ docker run -e "EMULATOR=android-22" -e "ARCH=x86" -d -P --name android behring/android-emulator
+$ docker run -e "EMULATOR=android-22" -d -P --name android behring/android-emulator
 ```
 
 ### How to connect to emulator
