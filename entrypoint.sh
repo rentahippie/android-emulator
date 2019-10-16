@@ -24,5 +24,4 @@ socat tcp-listen:443,bind=$ip,fork tcp:127.0.0.1:443 &
 
 echo no | /usr/local/android-sdk/tools/bin/avdmanager create avd -n test -k "system-images;${EMULATOR};default;armeabi-v7a"
 /usr/local/android-sdk/tools/emulator -avd test -noaudio -no-window -gpu off
-/bin/bash
 
