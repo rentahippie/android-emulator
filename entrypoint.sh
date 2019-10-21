@@ -5,7 +5,7 @@ if [[ $EMULATOR == "" ]]; then
     echo "Using default emulator $EMULATOR"
 fi
 
-echo "Requested API: ${EMULATOR} (armeabi-v7a) emulator."
+echo EMULATOR  = "Requested API: ${EMULATOR} (${ARCH}) emulator."
 if [[ -n $1 ]]; then
     echo "Last line of file specified as non-opt/last argument:"
     tail -1 $1
